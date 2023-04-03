@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"os"
 )
 
@@ -37,11 +38,18 @@ func exibiOpcoes() {
 		fmt.Println("Saindo do programa...")
 		os.Exit(0)
 	case 1:
-		fmt.Println("Monitorando...")
+		iniciarMonitoramento()
 	case 2:
 		fmt.Println("Exibindo logs...")
 	default:
 		fmt.Println("Não existe essa opção")
 		os.Exit(-1)
 	}
+}
+
+func iniciarMonitoramento() {
+	fmt.Println("Monitorando...")
+	site := "https://gustavosouza.dev.br/"
+	resp, _ := http.Get(site)
+	fmt.Println(resp)
 }
