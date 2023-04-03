@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
 	exibiSaudacoes()
@@ -32,11 +35,13 @@ func exibiOpcoes() {
 	switch comando {
 	case 0:
 		fmt.Println("Saindo do programa...")
+		os.Exit(0)
 	case 1:
 		fmt.Println("Monitorando...")
 	case 2:
 		fmt.Println("Exibindo logs...")
 	default:
 		fmt.Println("Não existe essa opção")
+		os.Exit(-1)
 	}
 }
